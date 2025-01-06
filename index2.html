@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      
+    }
+    input[type=time]::-webkit-datetime-edit-ampm-field
+    {
+        display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Time Calculator</h1>
+    <form id="timeCalculatorForm">
+      <label for="checkInTime">Check-In Time (e.g., 09:00)</label>
+      <input type="time" id="checkInTime" required>
+      
+      <label for="breakTime">Break Time (e.g., 00:30 for 30 mins)</label>
+      <input type="time" id="breakTime" required>
+      
+      <button type="submit">Calculate Checkout Time</button>
+    </form>
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    document.getElementById('timeCalculatorForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const checkInTime = document.getElementById('checkInTime').value;
+      const breakTime = document.getElementById('breakTime').value;
+      
+      if (!checkInTime || !breakTime) {
+        alert("Please fill in all fields");
+        return;
+      }
+      
+      // Convert times to minutes
+      const [checkInHours, checkInMinutes] = checkInTime.split(':').map(Number);
+      const [breakHours, breakMinutes] = breakTime.split(':').map(Number);
+
+      // Calculate total work time (8 hours 30 minutes) in minutes
+      const totalWorkTimeInMinutes = (8 * 60) + 30;
+      checkInHours=checkInHours%12;
+      console.log(checkInHours)
+      const effectiveHour = ((checkInHours * 60) + checkInMinutes)/60
+      console.log(effectiveHour)
+    //   const diff = totalWorkTimeInMinutes -
+      // Convert break time to minutes
+      const breakTimeInMinutes = (breakHours * 60) + breakMinutes;
+      
+      // Calculate the actual work time after excluding break time
+      const actualWorkTimeInMinutes = totalWorkTimeInMinutes - breakTimeInMinutes;
+      
+      // Create check-in date object and calculate checkout time
+      const checkInDate = new Date();
+      checkInDate.setHours(checkInHours, checkInMinutes, 0);
+      
+      // Add the actual work time to the check-in time
+      checkInDate.setMinutes(checkInDate.getMinutes() + actualWorkTimeInMinutes);
+      
+      // Format output to show time in HH:MM format
+      const checkoutTime = checkInDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('output').textContent = `You should leave by: ${checkoutTime}`;
+    });
+  </script>
+</body>
+</html>
