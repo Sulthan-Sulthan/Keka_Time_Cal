@@ -6,25 +6,27 @@
     <link rel="icon" type="image/x-icon" href="icon.png"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work Time Calculator</title>
-    
+
+
+
 </head>
 <body>
     <div class="calculator">
         <h1 class="header">Work Time Calculator</h1>
 
-        <label for="inHours">Latest Clock In Time:</label>
-        <div class="In-time">
+        <label for="inHours">Latest Clock In Time (24-hr clock) :</label>
+        <div class="In-time inputbox">
             <input type="number" id="inHours" class="in" placeholder="Hours" min="0" max="12" required>
             <input type="number" id="inMinutes" class="in" placeholder="Minutes" required>
         </div>
 
-        <label for="effectiveHours">Effective Hours:</label>
+        <label for="effectiveHours">Effective Hours :</label>
         <div class="effective-time">
             <input type="number" id="effectiveHours" class="in" placeholder="Hours" min="0" max="10">
             <input type="number" id="effectiveMinutes" class="in" placeholder="Minutes">
         </div>
 
-        <button onclick="calculateLeaveTime()" class="button-17" role="button">Calculate</button>
+        <button onclick="calculateLeaveTime()" class="button-17 but" role="button">Calculate</button>
 
         <div class="result" id="result"></div>
         <div class="result" id="result1"></div>

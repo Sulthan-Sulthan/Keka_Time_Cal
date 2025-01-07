@@ -9,7 +9,7 @@ input[type=number] {
 } 
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "trebuchet ms", verdana, helvetica, arial, sans-serif;
     background-color: #f4f4f9;
     margin: 0;
     padding: 0;
@@ -24,7 +24,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 600px;
-    height: 320px;
     text-align: center;
 }
 select, input {
@@ -51,7 +50,8 @@ button:hover {
 }
 .header {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 35px;
+    margin-bottom: 40px;
 }
 .in {
     width: 45%;
@@ -84,4 +84,11 @@ button:hover {
 .button-17:active {
     box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
     outline: none;
+}
+.inputbox{
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+.but{
+    margin-top: 15px;
 }
