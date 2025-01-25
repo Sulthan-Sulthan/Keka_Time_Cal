@@ -1,6 +1,13 @@
-
+// function refreshPage() {
+//     location.reload();
+//   }
 function calculateLeaveTime() {
-    // Get input values
+    // Get input value
+    const resultt = document.getElementById('result');
+    if (resultt.innerHTML){
+        resultt.innerHTML ="";
+    }
+    // if 
     const inHours = parseInt(document.getElementById('inHours').value, 10);
     const inMinutes = parseInt(document.getElementById('inMinutes').value, 10);
     let effectiveHours = parseInt(document.getElementById('effectiveHours').value, 10);
@@ -42,6 +49,8 @@ function calculateLeaveTime() {
     console.log(conHour1)
     const remain = conHour1 - conHour
     console.log(remain)
+    
+    
 
 
     const hours = Math.floor(remain / 60);
@@ -49,9 +58,13 @@ function calculateLeaveTime() {
     
     if (remain > 0 ){
         const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        document.getElementById('result1').style.color = 'red';
         document.getElementById('result1').innerText = `Remaining Time is : ${formattedTime}`;
     } else {
+    document.getElementById('result1').style.color = 'green';
     document.getElementById('result1').innerText = "Your time is allready completed";
+    exit();
+    location.reload();
     }
     
 
@@ -59,11 +72,12 @@ function calculateLeaveTime() {
 
     const formattedLeaveTime = `${leaveHours.toString().padStart(2, '0')}:${leaveMins.toString().padStart(2, '0')}`;
     const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-    console.log(formattedTime);
+    
 
     
 
     document.getElementById('result').innerText = `You can leave at: ${formattedLeaveTime}`;
+    
     
 
 }
