@@ -14,7 +14,7 @@ function calculateLeaveTime() {
     let effectiveMinutes = parseInt(document.getElementById('effectiveMinutes').value, 10);
 
     // Check if In-Time fields are empty and display an error if they are
-    if (isNaN(inHours) || isNaN(inMinutes) || inHours === "" || inMinutes === "") {
+    if (isNaN(inHours) || inHours === "") {
         document.getElementById('result').innerText = 'Please fill in both In-Time hours and minutes.';
         return;
     }
