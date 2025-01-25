@@ -22,7 +22,7 @@ function calculateLeaveTime() {
     // If Effective Time fields are empty, assume zero
     if (isNaN(effectiveHours)) effectiveHours = 0;
     if (isNaN(effectiveMinutes)) effectiveMinutes = 0;
-    if(isNaN(inMinutes)) inMinutes = 0;
+    if (isNaN(inMinutes)) inMinutes = 0;
     // Total work time in minutes (8 hours 30 minutes)
     const totalWorkMinutes = 8 * 60 + 30;
     const effectiveMinutesTotal = effectiveHours * 60 + effectiveMinutes;
