@@ -62,7 +62,7 @@ function calculateLeaveTime() {
         document.getElementById('result1').innerText = `Remaining Time is : ${formattedTime}`;
     } else {
     document.getElementById('result1').style.color = 'green';
-    document.getElementById('result1').innerText = "Your time is allready completed";
+    document.getElementById('result1').innerText = "Your time is already completed";
     exit();
     location.reload();
     }
