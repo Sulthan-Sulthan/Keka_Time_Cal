@@ -6,32 +6,65 @@
     <link rel="icon" type="image/x-icon" href="icon.png"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work Time Calculator</title>
-
-
-
 </head>
 <body>
+    <div class="gradient-bg"></div>
     <div class="calculator">
-        <h1 class="header">Work Time Calculator</h1>
-
-        <label for="inHours">Latest Clock In Time (24-hr clock) :</label>
-        <div class="In-time inputbox">
-            <input type="number" id="inHours" class="in" placeholder="Hours" min="0" max="12" required>
-            <input type="number" id="inMinutes" class="in" placeholder="Minutes" required>
+        <div class="header-section">
+            <div>
+                <h1 class="header">⏱️ Work Time Calculator</h1>
+                <p class="subtitle">Track your work hours and leave time</p>
+            </div>
+            <button id="themeToggle" class="theme-btn" aria-pressed="false">🌙</button>
         </div>
 
-        <label for="effectiveHours">Effective Hours :</label>
-        <div class="effective-time">
-            <input type="number" id="effectiveHours" class="in" placeholder="Hours" min="0" max="10">
-            <input type="number" id="effectiveMinutes" class="in" placeholder="Minutes">
+        <div class="input-section">
+            <div class="input-group">
+                <label for="inHours" class="label-text">📋 Clock In Time <span class="badge">24-hr</span></label>
+                <div class="time-input-wrapper">
+                    <input type="number" id="inHours" class="time-input" placeholder="HH" min="0" max="23" required>
+                    <span class="separator">:</span>
+                    <input type="number" id="inMinutes" class="time-input" placeholder="MM" min="0" max="59" required>
+                    <button id="nowBtn" class="now-btn">Now</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="effectiveHours" class="label-text">⚙️ Hours Already Worked</label>
+                <div class="time-input-wrapper">
+                    <input type="number" id="effectiveHours" class="time-input" placeholder="HH" min="0" max="24">
+                    <span class="separator">:</span>
+                    <input type="number" id="effectiveMinutes" class="time-input" placeholder="MM" min="0" max="59">
+                </div>
+            </div>
         </div>
 
-        <button onclick="calculateLeaveTime()" class="button-17 but" role="button">Calculate</button>
-        <!-- <button onclick="refreshPage()" class="button-17 but" role="button">refersh</button> -->
+        <div class="button-group">
+            <button id="calculateBtn" class="btn btn-primary" role="button">Calculate Leave Time</button>
+            <button id="resetBtn" class="btn btn-secondary" role="button">Reset</button>
+        </div>
 
-        <div class="result" id="result"></div>
-        <div class="result" id="result1"></div>
+        <div class="results-section">
+            <div class="result-card leave-time-card">
+                <div class="result-label">🚪 Leave At</div>
+                <div class="result" id="result">&nbsp;</div>
+            </div>
+            <div class="result-card remaining-time-card">
+                <div class="result-label">⏳ Time Left</div>
+                <div class="result" id="result1">&nbsp;</div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-header">
+                <div class="progress-label">📊 Work Progress</div>
+            </div>
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
